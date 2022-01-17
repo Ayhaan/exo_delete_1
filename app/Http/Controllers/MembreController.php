@@ -31,4 +31,24 @@ class MembreController extends Controller
         $membre->delete();
         return redirect()->back();
     }
+
+    public function show(Membre $membre)
+    {
+        return view('admin.membres.show', compact('membre'));
+    }
+
+
+    public function edit(Membre $membre)
+    {
+        return view('admin.membres.edit', compact('membre'));
+    }
+
+    public function update(Request $request, Membre $membre)
+    {
+        $membre->nom = $request->nom;
+        $membre->age = $request->age;
+        $membre->genre = $request->genre;
+        $membre->save();
+        return redirect()->route('membre.index');
+    }
 }

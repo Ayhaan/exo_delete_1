@@ -33,13 +33,17 @@
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
             {{ $item->genre }}
           </td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 flex">
+            {{-- DELETE --}}
             <form action="{{ route('membre.destroy', $item->id) }}" method="POST">
               @csrf
               @method('DELETE')
               <button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button>
-
             </form>
+            {{-- SHOW --}}
+            <a href="{{ route('membre.show', $item->id) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">show</a>
+            {{-- EDIT --}}
+            <a href="{{ route('membre.edit', $item->id) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">edit</a>
           </td>
         </tr>
           

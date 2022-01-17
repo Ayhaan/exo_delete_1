@@ -33,7 +33,14 @@ Route::get('/admin/membre/create', [MembreController::class, "create"])->name('m
 Route::post('/admin/membre/store', [MembreController::class, "store"])->name('membre.store');
     //crud -> delete
 Route::delete('/admin/membre/{membre}/delete', [MembreController::class, "destroy"])->name('membre.destroy');
+    //curd show
+Route::get('/admin/membre/{membre}/show', [MembreController::class, "show"])->name('membre.show');
+    //crud edit
+Route::get('/admin/membre/{membre}/edit', [MembreController::class, 'edit'])->name('membre.edit');
+Route::put('/admin/membre/{membre}/update', [MembreController::class, "update"])->name('membre.update');
+
 
 // page deriver de membre
 Route::get('/admin/membre/femme', [FemmeController::class, "index"])->name("femme.index");
 Route::get('/admin/membre/homme', [HommeController::class, "index"])->name("homme.index");
+
