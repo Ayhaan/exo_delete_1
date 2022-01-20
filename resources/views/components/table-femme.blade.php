@@ -19,8 +19,9 @@
       </tr>
     </thead>
     <tbody>
+      <tr class="odd:bg-white even:bg-gray-50">
+
       @forelse ($femmes->shuffle() as $item)
-        <tr class="odd:bg-white even:bg-gray-50">
           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
             #. {{ $item->id }}
           </td>
@@ -41,11 +42,14 @@
 
             </form>
           </td>
-        </tr>
           
       @empty
+        <td>
           <p>pas de membres disponibles pour l'instant</p>
+        </td>
+         
       @endforelse
+    </tr>
 
     </tbody>
   </table>

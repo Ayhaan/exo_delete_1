@@ -19,8 +19,8 @@
       </tr>
     </thead>
     <tbody>
+      <tr class="odd:bg-white even:bg-gray-50">
       @forelse ($hommes as $item)
-        <tr class="odd:bg-white even:bg-gray-50">
           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
             #. {{ $item->id }}
           </td>
@@ -41,12 +41,13 @@
 
             </form>
           </td>
+          
+          @empty
+            <td>
+                <p>pas de membres disponibles pour l'instant</p>
+            </td>
+         @endforelse
         </tr>
-          
-      @empty
-         <p>pas de membres disponibles pour l'instant</p>
-          
-      @endforelse
 
     </tbody>
   </table>

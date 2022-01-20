@@ -8,13 +8,19 @@
                         <div class="grid grid-cols-6 gap-6">
 
                             <div class="col-span-6" >
-                                <label for="first_name" class="block text-sm font-medium text-gray-700">nom</label>
-                                <input type="text" name="nom" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <label for="first_name" class="block text-sm font-medium  text-gray-700">nom</label>
+                                <input value="{{ old('nom') }}"  type="text" name="nom" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm  rounded-md border @error('nom') border-red-700 @enderror ">
+                                @error('nom')
+                                <span class="text-xs text-red-700" id="passwordHelp">{{ $message }}</span>
+                                @enderror
                             </div>
             
                             <div class="col-span-6 ">
                                 <label for="age" class="block text-sm font-medium text-gray-700">age</label>
-                                <input type="number" name="age" id="age" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <input type="number" value="{{ old('age') }}" name="age" id="age" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm  rounded-md border @error('age') border-red-700 @enderror">
+                                @error('age')
+                                <span class="text-xs text-red-700" id="passwordHelp">{{ $message }}</span>
+                                @enderror
                             </div>
                 
                             <div class="col-span-6 ">

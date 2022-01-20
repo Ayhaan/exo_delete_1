@@ -19,17 +19,24 @@ class MembreController extends Controller
     }
     public function store(Request $request)
     {
+        request()->validate([
+            "nom" => ["required", "min:2"],
+            "age" => ["required", "numeric"],
+            "genre" => ["required"]
+        ]);
+        
+
         $membre = new Membre();
         $membre->nom = $request->nom;
         $membre->age = $request->age;
         $membre->genre = $request->genre;
         $membre->save();
-        return redirect()->route('membre.index');
+        return redirect()->route('membre.index')->with('success', 'Validation');
     }
     public function destroy(Membre $membre)
     {
         $membre->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Delete');
     }
 
     public function show(Membre $membre)
@@ -45,6 +52,7 @@ class MembreController extends Controller
 
     public function update(Request $request, Membre $membre)
     {
+       
         $membre->nom = $request->nom;
         $membre->age = $request->age;
         $membre->genre = $request->genre;
